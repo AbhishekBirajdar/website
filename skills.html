@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birajdar Portfolio - Skills</title>
+  <style>
+    /* Global Reset/Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      color: #fff;
+      background-color: #000;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    li {
+      list-style: none;
+    }
+
+    /* Navigation Bar */
+    header {
+      background-color: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a:hover {
+      color: #f47c20; /* Hover color */
+    }
+
+    /* Hero Section */
+    .hero-skills {
+      background-color: #000;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero-skills h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-skills p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #f47c20;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: #fff;
+      color: #000;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .skills-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .skill-card {
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-card img {
+      width: 50px; /* Adjust size as needed */
+      height: 50px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .skill-card h3 {
+      margin-bottom: 0.5rem;
+      color: #f47c20;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .skill-card p {
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fff;
+      color: #000;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 768px) {
+      .hero-skills h1 {
+        font-size: 2rem;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none; color: inherit;">Birajdar</a>
+    </div>
+    <nav>
+      <ul>
+        <!-- Change these to your actual pages -->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experiences.html">Experience</a></li>
+        <li><a href="ngo.html">NGO</a></li>
+        <li><a href="certifications.html" >Certifications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="skills.html" >Skills</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-skills">
+    <h1>My Skills</h1>
+    <p>Explore my knowledge & toolset in data engineering and analytics</p>
+  </section>
+
+  <!-- Skills Content (White Background) -->
+  <section class="skills-section">
+    <h2>Technical Stack</h2>
+    <div class="skills-grid">
+
+      <!-- Programming Languages -->
+      <div class="skill-card">
+        <img src="images/logo-python.png" alt="Python Logo" />
+        <h3>Programming Languages</h3>
+        <p>Python (Pandas, NumPy, Boto3), SQL, C++</p>
+      </div>
+
+      <!-- Big Data & Distributed Systems -->
+      <div class="skill-card">
+        <img src="images/logo-spark.png" alt="Spark Logo" />
+        <h3>Big Data & Distributed Systems</h3>
+        <p>Spark, Hadoop, Hive, Kafka, AWS EMR</p>
+      </div>
+
+      <!-- Cloud Platforms -->
+      <div class="skill-card">
+        <img src="images/logo-aws.png" alt="AWS Logo" />
+        <h3>Cloud Platforms</h3>
+        <p>AWS (S3, Lambda, Redshift, DynamoDB, EC2), GCP (BigQuery, Composer, GKE)</p>
+      </div>
+
+      <!-- ETL Tools -->
+      <div class="skill-card">
+        <img src="images/logo-airflow.png" alt="Airflow Logo" />
+        <h3>ETL Tools</h3>
+        <p>Apache Airflow, Apache NiFi, AWS Glue, Informatica, SSIS</p>
+      </div>
+
+      <!-- Databases -->
+      <div class="skill-card">
+        <img src="images/logo-postgres.png" alt="Postgres Logo" />
+        <h3>Databases</h3>
+        <p>PostgreSQL, Snowflake, MongoDB, Redshift</p>
+      </div>
+
+      <!-- Visualization -->
+      <div class="skill-card">
+        <img src="images/logo-tableau.png" alt="Tableau Logo" />
+        <h3>Visualization</h3>
+        <p>Tableau, Power BI, Grafana, Excel</p>
+      </div>
+
+      <!-- Other Skills -->
+      <div class="skill-card">
+        <img src="images/logo-datamodeling.png" alt="Data Modeling Icon" />
+        <h3>Other Skills</h3>
+        <p>Data Modeling, Data Warehousing, CI/CD, Data Analytics</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Birajdar</h3>
+    <p>Portfolio of Birajdar showcasing data engineering and data analytics projects.</p>
+  </footer>
+
+</body>
+</html>
