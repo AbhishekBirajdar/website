@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birajdar Portfolio - Experience</title>
   <style>
-    /* Global Reset/Styles */
+    /* Global Styles */
     * {
       margin: 0;
       padding: 0;
@@ -16,13 +16,11 @@
       color: #fff;
       background-color: #000;
       line-height: 1.6;
+      text-align: center;
     }
     a {
       text-decoration: none;
       color: inherit;
-    }
-    li {
-      list-style: none;
     }
 
     /* Navigation Bar */
@@ -34,12 +32,16 @@
       align-items: center;
     }
     .logo a {
-      color: #fff; /* Keep text white */
+      color: #fff;
       text-decoration: none; 
-    }
-    .logo {
       font-size: 1.5rem;
       font-weight: bold;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
     }
     nav ul {
       display: flex;
@@ -47,6 +49,27 @@
     }
     nav a:hover {
       color: #f47c20;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      nav ul.show {
+        display: flex;
+      }
     }
 
     /* Hero Section */
@@ -65,40 +88,95 @@
       color: #f47c20;
     }
 
-    /* Experience Content (White Background) */
-    .experience-content {
+    /* Horizontal Timeline */
+    .timeline-container {
+      width: 100%;
+      overflow-x: auto; /* Enables scrolling */
+      padding: 3rem 0;
       background-color: #fff;
-      color: #000;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .experience-content h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .timeline {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
+      display: flex;
+      align-items: center;
+      position: relative;
+      max-width: 90%;
+      margin: auto;
+      overflow-x: auto;
+      padding-bottom: 2rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #f47c20;
+      z-index: -1;
     }
     .timeline-item {
-      background-color: #f9f9f9;
-      margin-bottom: 1.5rem;
-      border-radius: 4px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-width: 300px;
+      max-width: 350px;
+      background-color: #111;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: left;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 20px;
+    }
+    .timeline-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      object-fit: contain;
     }
     .timeline-item h3 {
       color: #f47c20;
       margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
     }
     .timeline-item .dates {
       font-size: 0.9rem;
-      color: #888;
+      color: #ddd;
       margin-bottom: 0.5rem;
     }
+    .timeline-item ul {
+      padding-left: 15px;
+      text-align: left;
+    }
+    .timeline-item li {
+      margin-bottom: 10px;
+    }
     .timeline-item p {
-      line-height: 1.4;
+      margin-top: 10px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    /* Responsive Timeline */
+    @media (max-width: 768px) {
+      .timeline {
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 1rem;
+      }
+      .timeline-item {
+        min-width: 250px;
+        max-width: 280px;
+      }
     }
 
     /* Footer */
@@ -108,28 +186,6 @@
       padding: 2rem;
       text-align: center;
     }
-    footer h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Responsive Media Queries */
-    @media (max-width: 768px) {
-      .hero-experience h1 {
-        font-size: 2rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .experience-content {
-        text-align: left;
-      }
-    }
   </style>
 </head>
 <body>
@@ -137,22 +193,17 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <!-- Logo links to Home -->
       <a href="index.html">Birajdar</a>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
-        <!-- Update these links based on your site structure -->
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="experiences.html">Experience</a></li>
-        <li><a href="ngo.html">NGO</a></li>
-        <li><a href="certifications.html" >Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html" >Skills</a></li>
       </ul>
     </nav>
   </header>
@@ -164,39 +215,50 @@
   </section>
 
   <!-- Experience Content -->
-  <section class="experience-content">
-    <h2>My Professional Timeline</h2>
+  <section class="timeline-container">
     <div class="timeline">
-
-      <!-- Timeline Item 1 -->
+      
+      <!-- Experience 1 -->
       <div class="timeline-item">
-        <h3>Company XYZ - Data Engineer</h3>
-        <div class="dates">Jan 2022 - Present</div>
-        <p>
-          - Built and maintained large-scale data pipelines using Apache Spark and Airflow. <br />
-          - Managed data lakes on AWS S3 and implemented real-time analytics with Kafka.
-        </p>
+        <h3><img src="images/r2s.jpg"> AI Data Engineer - RoundTechSquare</h3>
+        <div class="dates">May 2024 – September 2024</div>
+        <ul>
+          <li>Designed ETL pipelines and developed scalable data architecture.</li>
+          <li>Optimized LLM data flow and integrated structured/unstructured data.</li>
+        </ul>
+        <p><strong>Key Learnings:</strong> Airflow, distributed storage, cloud processing.</p>
       </div>
 
-      <!-- Timeline Item 2 -->
+      <!-- Experience 2 -->
       <div class="timeline-item">
-        <h3>Company ABC - Data Analyst</h3>
-        <div class="dates">Aug 2019 - Dec 2021</div>
-        <p>
-          - Developed dashboards and reports using Power BI and Tableau. <br />
-          - Performed data wrangling with Python, SQL, and orchestrated ETL flows.
-        </p>
+        <h3><img src="images/hp.png"> Business Analytics Extern - HP Tech Ventures</h3>
+        <div class="dates">February 2024 – April 2024</div>
+        <ul>
+          <li>Analyzed datasets on AI companies for investment opportunities.</li>
+          <li>Developed dashboards to track AI industry performance.</li>
+        </ul>
+        <p><strong>Key Learnings:</strong> Market research, AI trend analysis, business intelligence.</p>
       </div>
 
-      <!-- Add more timeline items as needed -->
+      <!-- Experience 3 -->
+      <div class="timeline-item">
+        <h3><img src="images/accenture.png"> Software Analyst - Accenture</h3>
+        <div class="dates">August 2021 – August 2023</div>
+        <ul>
+          <li>Built ETL pipelines for global banking transactions.</li>
+          <li>Optimized banking workflows across APAC regions.</li>
+        </ul>
+        <p><strong>Key Learnings:</strong> Financial data handling, NiFi, compliance.</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <h3>Birajdar</h3>
-    <p>Portfolio of Birajdar showcasing data engineering and data analytics projects.</p>
-  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

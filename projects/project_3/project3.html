@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETL Data Processing for Rental Apartments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f4f4f4;
+      color: #000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    h1, h2 {
+      color: #f47c20;
+    }
+    ul {
+      margin-left: 1.5rem;
+    }
+    .back-link {
+      display: block;
+      margin-bottom: 1rem;
+      color: #f47c20;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="../../projects.html" class="back-link">← Back to Projects</a>
+    <h1>ETL Data Processing of Rental Apartments Using Glue, Redshift, and Step Functions</h1>
+
+    <h2>Introduction</h2>
+    <p>
+      This project outlines an ETL data pipeline for rental apartments, leveraging AWS services to process large-scale housing data for analytics and market trends.
+    </p>
+
+    <h2>Workflow Overview</h2>
+    <ul>
+      <li>Extracting property rental data from AWS Aurora (MySQL).</li>
+      <li>Storing extracted data in Amazon S3.</li>
+      <li>Loading raw data into Amazon Redshift for batch processing.</li>
+      <li>Transforming datasets using AWS Glue jobs.</li>
+      <li>Orchestrating workflow using AWS Step Functions.</li>
+      <li>Running business analytics using Amazon Redshift.</li>
+    </ul>
+
+    <img src="image1.png" alt="ETL Pipeline Workflow">
+
+    <h2>Step Functions for Workflow Automation</h2>
+    <p>
+      AWS Step Functions automate ETL execution by triggering AWS Glue jobs, coordinating data flow, and ensuring the pipeline runs efficiently.
+    </p>
+
+    <h2>Technologies Used</h2>
+    <ul>
+      <li>Amazon S3 - Data lake</li>
+      <li>AWS Glue - Data transformation</li>
+      <li>Amazon Redshift - Data warehousing</li>
+      <li>AWS Step Functions - Workflow automation</li>
+      <li>AWS Aurora (MySQL) - Data source</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+      This ETL solution enables efficient housing data analytics. Future enhancements include AWS Lambda for event-driven ingestion and ML models for predictive rent pricing.
+    </p>
+  </div>
+
+</body>
+</html>

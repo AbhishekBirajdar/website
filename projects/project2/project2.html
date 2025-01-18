@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Music Streams Processing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f4f4f4;
+      color: #000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    h1, h2 {
+      color: #f47c20;
+    }
+    ul {
+      margin-left: 1.5rem;
+    }
+    .back-link {
+      display: block;
+      margin-bottom: 1rem;
+      color: #f47c20;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="../../projects.html" class="back-link">← Back to Projects</a>
+    <h1>Distributed Music Streams Processing Using Airflow, Spark & DynamoDB</h1>
+    
+    <h2>Executive Summary</h2>
+    <p>
+      This project implements an ETL workflow using AWS services to process music streaming data. The pipeline integrates Apache Airflow, AWS Glue (PySpark), Amazon S3, and DynamoDB for efficient data handling and storage.
+    </p>
+
+    <h2>Solution Architecture</h2>
+    <p>The system consists of:</p>
+    <ul>
+      <li><strong>Storage Layer:</strong> Music streaming data is ingested into Amazon S3.</li>
+      <li><strong>Processing Layer:</strong> AWS Glue (PySpark) performs batch processing.</li>
+      <li><strong>Database Layer:</strong> Processed data is stored in Amazon DynamoDB.</li>
+      <li><strong>Orchestration Layer:</strong> Apache Airflow automates workflow execution.</li>
+    </ul>
+
+    <img src="image1.png" alt="Solution Architecture">
+
+    <h2>Data Pipeline Workflow</h2>
+    <ul>
+      <li><strong>Step 1:</strong> Airflow triggers data ingestion from S3.</li>
+      <li><strong>Step 2:</strong> AWS Glue cleans and transforms the data.</li>
+      <li><strong>Step 3:</strong> Transformed data is loaded into DynamoDB.</li>
+      <li><strong>Step 4:</strong> Processed files are archived for historical tracking.</li>
+    </ul>
+
+    <img src="image2.png" alt="Data Pipeline Workflow">
+
+    <h2>Technologies Used</h2>
+    <ul>
+      <li>Amazon S3 - Data storage</li>
+      <li>Apache Airflow - Workflow orchestration</li>
+      <li>AWS Glue - ETL processing</li>
+      <li>Amazon DynamoDB - NoSQL database</li>
+    </ul>
+
+    <img src="image3.png" alt="Data Pipeline Workflow">
+
+    <h2>Conclusion</h2>
+    <p>
+      This project effectively processes music streaming data, enabling real-time analytics. Future improvements include AWS Lambda for event-driven ingestion and DynamoDB Streams for real-time processing.
+    </p>
+  </div>
+
+</body>
+</html>
