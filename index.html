@@ -32,6 +32,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
     .logo {
       font-size: 1.5rem;
@@ -42,29 +47,59 @@
       gap: 1.5rem;
     }
     nav a:hover {
-      color: #f47c20; /* Hover color */
+      color: #f47c20;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: white;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
 
     /* Hero Section */
     .hero {
-      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 7rem 2rem 3rem;
       text-align: center;
-      padding: 4rem 2rem;
+      background-color: #000;
+      color: #fff;
+    }
+    .hero-text {
+      max-width: 450px;
     }
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.6rem;
     }
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: #f47c20;
-    }
-    .hero .hero-image {
-      width: 100%;
-      max-width: 600px;
-      margin: 1rem auto;
-      display: block;
     }
     .hero .explore-btn {
       background-color: #f47c20;
@@ -74,81 +109,75 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 1rem;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
     }
     .hero .explore-btn:hover {
       background-color: #ffa94d;
+      transform: scale(1.05);
+    }
+    .hero-image {
+      max-width: 350px;
+    }
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
     }
 
     /* What I Do Section */
     .what-i-do {
       background-color: #fff;
       color: #000;
-      padding: 3rem 2rem;
+      padding: 3rem 5rem;
       text-align: center;
     }
     .what-i-do h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 2rem;
     }
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      justify-content: center;
       gap: 2rem;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
+      flex-wrap: nowrap; /* Ensures all cards stay in one line */
     }
     .card {
       background-color: #f9f9f9;
       padding: 1.5rem;
       border-radius: 0.5rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      width: 320px; /* Ensures consistent size */
+      flex: 1; /* Ensures equal spacing */
     }
-    .card h3 {
-      margin-bottom: 1rem;
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #ffa94d;
     }
-    .card p {
-      line-height: 1.4;
+    .card img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .card a {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #000;
+      margin-top: 10px;
     }
 
-    /* Contact Section */
-    .contact-section {
-      background-color: #000;
-      padding: 3rem 2rem;
-      color: #fff;
-      text-align: center;
-    }
-    .contact-section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #fff;
-    }
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      width: 100%;
-      border-radius: 0.3rem;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      background-color: #f47c20;
-      border: none;
-      color: #000;
-      font-weight: bold;
-      padding: 0.75rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .contact-form button:hover {
-      background-color: #ffa94d;
+    /* Responsive */
+    @media (max-width: 992px) {
+      .cards {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      }
     }
 
     /* Footer */
@@ -156,130 +185,75 @@
       background-color: #fff;
       color: #000;
       padding: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-left p {
-      margin-bottom: 0.5rem;
-    }
-    .footer-nav ul {
-      display: flex;
-      gap: 1rem;
-    }
-    .footer-nav a {
-      color: #000;
-      transition: color 0.3s;
-    }
-    .footer-nav a:hover {
-      color: #f47c20;
-    }
-
-    /* Responsive Media Queries */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <header>
     <div class="logo">
-      <a href="index.html" style="text-decoration: none; color: inherit;">Birajdar</a>
+      <a href="index.html">Birajdar</a>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
-        <!-- Change these to your actual pages -->
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="experiences.html">Experience</a></li>
-        <li><a href="ngo.html">NGO</a></li>
-        <li><a href="certifications.html" >Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html" >Skills</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <p>Explore the world of data engineering and analytics through my projects.</p>
-    <h1>Welcome to My Portfolio</h1>
-    <button class="explore-btn" onclick="location.href='projects.html'">Explore Projects</button>
-    <!-- Optional Hero Image -->
-    <!-- <img src="your-hero-image.jpg" alt="Hero Image" class="hero-image" /> -->
+    <div class="hero-text">
+      <p>Explore the world of data engineering and analytics through my projects.</p>
+      <h1>Welcome to My Portfolio</h1>
+      <button class="explore-btn" onclick="location.href='projects.html'">Explore Projects</button>
+    </div>
+    <div class="hero-image">
+      <img src="images/etl.webp" alt="Data Engineering">
+    </div>
   </section>
 
   <!-- What I Do Section -->
   <section class="what-i-do">
     <h2>What I Do</h2>
     <div class="cards">
-      <div class="card">
-        <h3>Data Engineering</h3>
-        <p>Building and maintaining robust data pipelines for seamless data flow.</p>
+      <div class="card" onclick="location.href='projects.html'">
+        <img src="images/data_engineer.jpg" alt="AWS Projects">
+        <a href="projects.html">AWS Projects</a>
+        <p>Building scalable cloud solutions with AWS services.</p>
       </div>
-      <div class="card">
-        <h3>Data Analytics</h3>
-        <p>Transforming data into actionable insights with advanced analytics techniques.</p>
+      <div class="card" onclick="location.href='experiences.html'">
+        <img src="images/exp.jpg" alt="Experience">
+        <a href="experiences.html">Experience</a>
+        <p>My journey working with top tech companies and building real-world solutions.</p>
       </div>
-      <div class="card">
-        <h3>ETL Processes</h3>
-        <p>Specializing in Extract, Transform, Load processes for optimal data management.</p>
+      <div class="card" onclick="location.href='skills.html'">
+        <img src="images/aws stack.png" alt="Skills">
+        <a href="skills.html">Skills</a>
+        <p>Expertise in Python, SQL, Spark, Data Pipelines, and more.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <h2>Get in Touch</h2>
-    <form action="#" class="contact-form">
-      <input type="text" name="name" placeholder="Name"/>
-      <input type="email" name="email" placeholder="Email"/>
-      <textarea name="message" rows="5" placeholder="Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-left">
-      <h3>Birajdar</h3>
-      <p>Portfolio of Birajdar showcasing data engineering and data analytics projects.</p>
-    </div>
-    <div class="footer-nav">
-      <ul>
-        <!-- Change these to your actual pages -->
-        <!-- Change these to your actual pages -->
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="projects.html">Projects</a></li>  
-      <li><a href="experiences.html">Experience</a></li>
-      <li><a href="ngo.html">NGO</a></li>
-      <li><a href="certifications.html" >Certifications</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="resume.html">Resume</a></li>
-      <li><a href="skills.html" >Skills</a></li>
-      </ul>
-    </div>
+    <p>© 2024 Birajdar | All Rights Reserved</p>
   </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
-
