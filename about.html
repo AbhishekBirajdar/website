@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birajdar Portfolio - About</title>
   <style>
-    /* Global Reset & Body */
+    /* Global Styles */
     * {
-      margin: 0; 
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
     }
     body {
       background-color: #000;
@@ -25,7 +25,7 @@
       list-style: none;
     }
 
-    /* NAVIGATION (HEADER) */
+    /* Navigation Bar */
     header {
       background-color: #000;
       padding: 1rem 2rem;
@@ -33,9 +33,16 @@
       justify-content: space-between;
       align-items: center;
     }
-    .logo {
+    .logo a {
       font-size: 1.5rem;
       font-weight: bold;
+      color: #fff;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
     }
     nav ul {
       display: flex;
@@ -45,22 +52,44 @@
       color: #f47c20;
     }
 
-    /* HERO (ABOUT) */
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
     .hero-about {
-      background-color: #000;
+      background: linear-gradient(90deg, #0a0a0a, #1c1c1c);
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
     }
     .hero-about h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
-    }
-    .hero-about p {
-      font-size: 1.2rem;
       color: #f47c20;
     }
+    .hero-about p {
+      font-size: 1.3rem;
+      color: #ccc;
+    }
 
-    /* WHITE CONTENT SECTION */
+    /* About Content */
     .about-content {
       background-color: #fff;
       color: #000;
@@ -68,13 +97,15 @@
       text-align: center;
     }
     .about-content h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      color: #f47c20;
     }
     .about-content p {
       max-width: 800px;
       margin: 0 auto;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
       line-height: 1.6;
     }
     .about-highlight {
@@ -82,82 +113,139 @@
       color: #f47c20;
     }
 
-    /* FOOTER (NO EXTRA NAV) */
+    /* Skills Section */
+    .skills-section {
+      background-color: #111;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .skills-section h2 {
+      color: #f47c20;
+      margin-bottom: 2rem;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .skill-box {
+      background-color: #222;
+      padding: 1.5rem;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+    .skill-box:hover {
+      transform: scale(1.05);
+      background-color: #f47c20;
+      color: #000;
+    }
+    .skill-box img {
+      width: 50px;
+      margin-bottom: 1rem;
+    }
+    .skill-box p {
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
     footer {
       background-color: #fff;
       color: #000;
       padding: 2rem;
       text-align: center;
     }
-    footer h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero-about h1 {
-        font-size: 2rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- Navigation -->
   <header>
     <div class="logo">
-      <a href="index.html" style="text-decoration: none; color: inherit;">Birajdar</a>
+      <a href="index.html">Birajdar</a>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
-        <!-- Change these to your actual pages -->
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="experiences.html">Experience</a></li>
-        <li><a href="ngo.html">NGO</a></li>
-        <li><a href="certifications.html" >Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html" >Skills</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- Hero Section -->
   <section class="hero-about">
     <h1>About Me</h1>
-    <p>Your Data Engineer &amp; Analytics Enthusiast</p>
+    <p>Transforming Raw Data into Business Insights</p>
   </section>
 
-  <!-- ABOUT CONTENT -->
+  <!-- About Content -->
   <section class="about-content">
     <h2>My Journey</h2>
     <p>
-      Hello! I’m Birajdar, a <span class="about-highlight">Data Engineer</span> with a passion 
-      for transforming raw information into actionable insights. ...
+      Hello! I’m Birajdar, a <span class="about-highlight">Data Engineer & Analyst</span> passionate about building robust 
+      data solutions. From designing scalable architectures to real-time analytics, 
+      I specialize in making **data-driven decision-making** faster and more efficient.
     </p>
     <p>
-      From designing scalable architectures to working on advanced analytics, 
-      I thrive on <span class="about-highlight">solving data challenges</span> in innovative ways...
+      With expertise in **Python, SQL, Apache Spark, Airflow, AWS, and Power BI**, I craft 
+      solutions that empower businesses to harness the full potential of their data. 
+      Whether it's ETL pipelines, cloud solutions, or machine learning workflows, 
+      I thrive in environments where I can optimize and innovate.
     </p>
   </section>
 
-  <!-- FOOTER (WITHOUT NAV LINKS) -->
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-box">
+        <img src="images/sql.png" alt="SQL">
+        <p>SQL & Databases</p>
+      </div>
+      <div class="skill-box">
+        <img src="images/python.png" alt="Python">
+        <p>Python & Data Engineering</p>
+      </div>
+      <div class="skill-box">
+        <img src="images/spark.png" alt="Apache Spark">
+        <p>Apache Spark & Big Data</p>
+      </div>
+      <div class="skill-box">
+        <img src="images/aws.png" alt="AWS">
+        <p>AWS Cloud Solutions</p>
+      </div>
+      <div class="skill-box">
+        <img src="images/airflow.png" alt="Airflow">
+        <p>Apache Airflow</p>
+      </div>
+      <div class="skill-box">
+        <img src="images/tableau.png" alt="Tableau">
+        <p>Data Visualization</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <h3>Birajdar</h3>
     <p>Portfolio of Birajdar showcasing data engineering and data analytics projects.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
